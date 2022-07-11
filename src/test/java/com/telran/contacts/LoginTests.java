@@ -9,8 +9,8 @@ public class LoginTests extends TestBase {
     //precondition: user should be logged out
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!app.isLoginLinkPresent()) {
-            app.click(By.xpath("//button[contains(.,'Sign Out')]"));
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getUser().click(By.xpath("//button[contains(.,'Sign Out')]"));
         }
     }
 
@@ -19,7 +19,7 @@ public class LoginTests extends TestBase {
         //click on Login link
         app.getUser().login();
         // accert the button SignOut
-        Assert.assertTrue(app.isSignOutButtonPresent());
+        Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
     }
 
 }

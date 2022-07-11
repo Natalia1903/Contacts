@@ -12,7 +12,7 @@ public class AddContactTest extends TestBase{
     @BeforeMethod
     public void ensurePreconditions()
     {
-        if(!app.isLoginLinkPresent()){
+        if(!app.getHeader().isLoginLinkPresent()){
             app.getUser().click(By.xpath("//button[contains(.,'Sign Out')]"));
         }else {
             app.getUser().login();

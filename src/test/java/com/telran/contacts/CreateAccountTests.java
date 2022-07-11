@@ -9,17 +9,18 @@ public class CreateAccountTests extends TestBase {
     //precondition: user should be logged out
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!app.isLoginLinkPresent()) {
-            app.click(By.xpath("//button[contains(.,'Sign Out')]"));
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getHeader().click(By.xpath("//button[contains(.,'Sign Out')]"));
         }
     }
 
-    @Test
-    public void registrationPositiveTest() {
-        //click on the link LOGIN
-        app.getUser().registration();
-        //assert the button Sign out displayed
-        Assert.assertTrue(app.isSignOutButtonPresent());
-    }
 
-}
+        @Test
+        public void registrationPositiveTest() {
+            //click on the link LOGIN
+            app.getUser().registration();
+                //assert the button Sign out displayed
+                Assert.assertTrue(app.getHeader().isSignOutButtonPresent());
+            }
+
+        }

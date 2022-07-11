@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver driver;
 
+    HeaderHelper header;
     UserHelper user;
     ContactHelper contact;
 
@@ -19,6 +20,7 @@ public class ApplicationManager {
     public ContactHelper getContact() {
         return contact;
     }
+    public  HeaderHelper getHeader() {return header;}
 
     public void init() {
         driver = new ChromeDriver();
@@ -28,6 +30,8 @@ public class ApplicationManager {
 
         user = new UserHelper(driver);
         contact = new ContactHelper(driver);
+        header = new HeaderHelper(driver);
+
 
     }
 
@@ -39,18 +43,5 @@ public class ApplicationManager {
         driver.quit();
     }
 
-
-
-    public boolean isLoginLinkPresent() {
-        return isElementPresent(By.xpath("//a[contains(.,'LOGIN')]"));
-    }
-
-    public void clickOnSignOutButton() {
-        click(By.xpath("//button[contains(.,'Sing Out')]"));
-    }
-
-    public boolean isSignOutButtonPresent() {
-        return isElementPresent(By.xpath("//button[contains(.,'Sign Out')]"));
-    }
 
 }
