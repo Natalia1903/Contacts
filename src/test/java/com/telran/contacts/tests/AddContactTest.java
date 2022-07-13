@@ -56,7 +56,7 @@ public class AddContactTest extends TestBase {
     @DataProvider
     public Iterator<Object[]> addNewContactCSV() throws IOException {
         List<Object[]> list = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")));
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contact2.csv")));
 
         String line = reader.readLine();
 
@@ -74,7 +74,7 @@ public class AddContactTest extends TestBase {
 
     }
 
-    @Test(dataProvider = "addNewContactFromCSV")
+    @Test(dataProvider = "addNewContactCSV")
     public void addContactPositiveTestFromCSV(Contact contact) {
         app.getContact().click(By.xpath("//a[contains(text(),'ADD')]"));
         app.getContact().fillContactForm(contact);
