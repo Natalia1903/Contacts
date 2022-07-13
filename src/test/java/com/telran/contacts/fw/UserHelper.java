@@ -1,9 +1,10 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
+import com.telran.contacts.models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class UserHelper extends HelperBase{
+public class UserHelper extends HelperBase {
     public UserHelper(WebDriver driver) {
         super(driver);
     }
