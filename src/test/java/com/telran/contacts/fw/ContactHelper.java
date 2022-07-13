@@ -1,5 +1,6 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
+import com.telran.contacts.models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
     public ContactHelper(WebDriver driver) {
         super(driver);
     }
@@ -52,7 +53,7 @@ public class ContactHelper extends HelperBase{
 
     }
 
-    protected void removeContact() {
+    public void removeContact() {
         if(!isContactListEmpty()){
             click(By.cssSelector(".contact-item_card__2SOIM"));
             click(By.xpath("//button[contains(.,'Remove')]"));

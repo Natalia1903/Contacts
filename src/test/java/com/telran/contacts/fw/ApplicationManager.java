@@ -1,5 +1,8 @@
-package com.telran.contacts;
+package com.telran.contacts.fw;
 
+import com.telran.contacts.fw.ContactHelper;
+import com.telran.contacts.fw.HeaderHelper;
+import com.telran.contacts.fw.UserHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

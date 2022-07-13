@@ -1,4 +1,4 @@
-package com.telran.contacts;
+package com.telran.contacts.tests;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
