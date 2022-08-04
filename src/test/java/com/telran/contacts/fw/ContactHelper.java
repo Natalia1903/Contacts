@@ -1,38 +1,46 @@
-package com.telran.contacts.fw;
+ package com.telran.contacts.fw;
 
 import com.telran.contacts.models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
 
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
     public ContactHelper(WebDriver driver) {
+
         super(driver);
     }
 
-    public void clickWithAction(By save){
-        Actions actions= new Actions(driver);
-        WebElement element = driver.findElement(save);
+     //public void clickWithAction(By save){
+      // Actions actions= new Actions(driver);
+      //  WebElement element = driver.findElement(save);
 
-        actions.moveToElement(element).perform();
-        element.click();
-    }
+       // actions.moveToElement(element).perform();
+    //    element.click();
+    //}
 
     public boolean isContactCreated(String text) {
         List<WebElement> contacts = driver.findElements(By.cssSelector("h2"));
-        for (WebElement el:contacts){
-            if(el.getText().contains(text));
+        for (WebElement el : contacts) {
+            if (el.getText().contains(text)) ;
             return true;
-        } return false;
+        }
+        return false;
     }
 
     public void addContact() {
-        int i=(int) (System.currentTimeMillis())/10000000;
+        int i = (int) ((System.currentTimeMillis()) / 1000) % 3600;
         click(By.xpath("//a[contains(text(),'ADD')]"));
-        fillContactForm(new Contact().setName("Goga").setSureName("Vadim").setPhone( "9875643" + i).setEmail( "vadim" + i + "@gmail.com").setAddress("Berlin").setDiscription("des"));
+        fillContactForm(new Contact()
+                .setName("Goga")
+                .setSureName("Vadim")
+                .setPhone("9875643" + i)
+                .setEmail("vadim" + i + "@gmail.com")
+                .setAddress("Berlin")
+                .setDiscription("des"));
         clickWithAction(By.cssSelector(".add_form__2rsm2 button"));
     }
 
@@ -47,20 +55,34 @@ public class ContactHelper extends HelperBase {
     }
 
     public int sizeOfContacts() {
-    if(isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))){
-        return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
-    }return 0;
+        if (isElementPresent(By.cssSelector(".contact-item_card__2SOIM"))) {
+            return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).size();
+        }
+        return 0;
 
     }
 
     public void removeContact() {
-        if(!isContactListEmpty()){
+        if (!isContactListEmpty()) {
             click(By.cssSelector(".contact-item_card__2SOIM"));
             click(By.xpath("//button[contains(.,'Remove')]"));
         }
     }
 
     public boolean isContactListEmpty() {
-    return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).isEmpty();
+        return driver.findElements(By.cssSelector(".contact-item_card__2SOIM")).isEmpty();
+    }
+
+    public void clickOnAddLink() {
+        click(By.xpath("//a[contains(text(),'ADD')]"));
+    }
+
+    public void clickOnSaveButtonWithAction() {
+        clickWithAction(By.cssSelector(".add_from_2rsm2 button"));
+
+    }
+
+
+    public void clickWithAction(By cssSelector) {
     }
 }

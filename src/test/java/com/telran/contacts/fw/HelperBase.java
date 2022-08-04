@@ -1,8 +1,13 @@
 package com.telran.contacts.fw;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+import java.io.File;
+import java.io.IOException;
 import java.util.NoSuchElementException;
 
 public class HelperBase {
@@ -44,5 +49,28 @@ public class HelperBase {
             e.printStackTrace();
         }
 
+    }
+
+    public boolean isAlertPresent() {
+        Alert alert = new WebDriverWait(driver,20).until(ExpectedConditions.alertIsPresent());
+        if (alert == null) {
+    return false;
+
+     }else{
+            driver.switchTo().alert();
+            alert.accept();
+        }
+       return true;
+
+    }
+    public String takeScreenshot(){
+        File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File screenshot = new File("screenshots/screen" + System.currentTimeMillis() + ".png");
+        try {
+            Files.copy(tmp,screenshot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screenshot.getAbsolutePath();
     }
 }

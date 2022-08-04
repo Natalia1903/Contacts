@@ -6,7 +6,7 @@ public class HomePageTests extends TestBase {
 
     @Test
     public void openHomePageTest(){
-        System.out.println("Site opend!!");
+        System.out.println("Site open!!");
         //verify to  displayed Home Component form
        // isComponentFormPresent();
         //System.out.println("Component Form:" + isComponentFormPresent());
