@@ -2,6 +2,7 @@ package com.telran.contacts.fw;
 
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -72,5 +73,12 @@ public class HelperBase {
             e.printStackTrace();
         }
         return screenshot.getAbsolutePath();
+    }
+    public void clickWithAction(By save){
+        Actions actions= new Actions(driver);
+        WebElement element = driver.findElement(save);
+
+        actions.moveToElement(element).perform();
+        element.click();
     }
 }

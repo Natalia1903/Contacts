@@ -18,27 +18,24 @@ dependencies {
 task testy(type:Test) {
     useTestNG()
     if (project.hasProperty('browser')) {
-
         systemProperty 'browser', "${browser}"
     }
-
 }
-    task testyUser(type: Test) {
-        useTestNG() {
-            suites 'src/test/resources/testng.xml'
-        }
-        if (project.hasProperty('browser')) {
 
-            systemProperty 'browser', "${browser}"
-        }
+task testUser(type:Test) {
+    useTestNG(){
+        suites 'src/test/resources/testng.xml'
     }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+}
 
-        task testySmoky(type: Test) {
-            useTestNG() {
-                suites 'src/test/resources/testngSmoky.xml'
-            }
-            if (project.hasProperty('browser')) {
-
-                systemProperty 'browser', "${browser}"
-            }
-        }
+task testSmoky(type:Test) {
+    useTestNG(){
+        suites 'src/test/resources/testngSmoky.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+}

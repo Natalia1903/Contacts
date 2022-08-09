@@ -14,13 +14,7 @@ public class ContactHelper extends HelperBase {
         super(driver);
     }
 
-     //public void clickWithAction(By save){
-      // Actions actions= new Actions(driver);
-      //  WebElement element = driver.findElement(save);
 
-       // actions.moveToElement(element).perform();
-    //    element.click();
-    //}
 
     public boolean isContactCreated(String text) {
         List<WebElement> contacts = driver.findElements(By.cssSelector("h2"));
@@ -83,6 +77,5 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public void clickWithAction(By cssSelector) {
-    }
+
 }
