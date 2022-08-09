@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="ContactUser" verbose="1" >
+    <test name="ContactUser" >
+        <classes>
+            <class name="com.telran.contacts.tests.LoginTests">
+                <methods>
+                    <exclude name=".*Negative.*"> </exclude>
+                </methods>
+            </class>
+
+            <class name="com.telran.contacts.tests.RemoveContactTests">
+
+            </class>
+        </classes>
+    </test>
+</suite>
